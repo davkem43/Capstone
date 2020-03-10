@@ -1,0 +1,42 @@
+/* Add padding to containers */
+.container {
+  display: flex;
+  flex-direction: column;
+  align-content: center;
+  justify-content: center;
+  padding: 40px;
+}
+button[type="button"] {
+  display: flex;
+  flex-direction: row;
+  flex-flow: row;
+  flex-wrap: wrap;
+  align-content: center;
+  justify-content: center;
+  padding: 5px;
+  width: 10%;
+}
+/* input fields */
+input[type="text"], input[type="password"] {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-content: center;
+  width: 25%;
+  padding: 15px;
+  margin: 5px 0 22px 0;
+  border: none;
+  background: #f1f1f1;
+}
+
+input[type="text"]:focus, input[type="password"]:focus {
+  background-color: #ddd;
+  outline: none;
+}
+/* Add a blue text color to links */
+a {
+  color: dodgerblue;
+}
+.signin {
+  text-align: center;
+}

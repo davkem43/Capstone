@@ -12,42 +12,31 @@
 </head>
 <body>
 
-<div class="page">
+<div class="root">
     <div class="nav">
         <i class="fas fa-bars"></i>
-        <a href="./main.html" class="nav" id="Who">Who We Are</a>
-        <a href="./main.html" class="nav" id="What">What We Do</a>
-        <a href="./main.html" class="nav" id="How">How You Help</a>
-        <a href="./main.html" class="nav"id="Register">Register</a>
-        <a href="./main.html" class="nav"id="SignIn">Sign In</a>
+        <a href="./info.html" class="nav" id="What">What We Do</a>
+        <a href="./info.html" class="nav" id="How">Pledge Now!</a>
+        <a href="./register.html" class="nav"id="Register">Register</a>
+        <a href="./login.html" class="nav"id="SignIn">Sign In</a>
         <i class="fas fa-user"></i>
     </div><!--nav-->
     <div class="header" id="slogan">
         <h1>Peer Pledge</h1>
     </div><!--header-->
-    <div class="peer_search" id="peer_group">
-        <input type="search" id="Peer Search" name="q"
-        placeholder="Find Peers" size="50">
-       <button>Find</button>
-       <p class = "search_text"> Enter the name of a Peer, Peer Group, city, or state</p>
-    </div><!--peer-->
-    <div class="section2" id="main">
+    <div class="peer_search">
+        <input type="search" id="Peer Search" name="q" placeholder="Find Peers" size="50">
+        <button class="find">Find</button>
+        <p class = "search_text"> Enter the name of a Peer, Peer Group, city, or state</p>
+    </div><!--peer_search-->
+    <div class="banner" id="pledges">
         <p></p>
-    </div><!--section2-->
-    <div class="charity_search" id="banner">
-        <input type="search" id="Charity_Search" name="q"
-        placeholder="Search Charities" size="50">
-       <button>Search</button>
-       <p class = "search_text">  Enter the name of a Charity, city, or state</p>
-    </div><!--charity-->
-    <div class="pledge_activity">
-        <i class="fas fa-money-bill-wave"></i>
-        <i class="fas fa-dollar-sign"></i>
-        <i class="fas fa-money-bill-wave"></i>
-        <i class="fas fa-euro-sign"></i>
-        <i class="fas fa-money-bill-wave"></i>
-        <i class="fas fa-pound-sign"></i>
-    </div><!--pledge_activity-->
+    </div><!--banner-->
+    <div class="charity_search" id="charities">
+        <input type="search" id="Charity_Search" name="q" placeholder="Search Charities" size="50">
+        <button class="Search">Search</button>
+        <p class = "search_text">  Enter the name of a Charity, city, or state</p>
+    </div><!--charity_search-->
 
 <div class="section3">
     <div class="section3" id="box1">
@@ -62,17 +51,17 @@
 </div><!--#section3-->
 
 <div class="section4">
-    <ul class="top3" id="topCharities">Top Charities
+    <ul class="top3" id="topCharities"><h3>Top Charities</h3>
         <li>Charity A</li>
         <li>Fund B</li>
         <li>Foundation G</li>
     </ul><!--topCharities-->
-    <ul class="top3" id="topPledges">Top Pledges
+    <ul class="top3" id="topPledges"><h3>Top Pledges</h3>
         <li>1st Place</li>
         <li>2nd Place</li>
         <li>3rd Place</li>
     </ul><!--topPledges-->
-    <ul class="top3" id="topMembers">Top Members
+    <ul class="top3" id="topMembers"><h3>Top Members</h3>
         <li>Biggest</li>
         <li>Next Biggest</li>
         <li>Next Next Biggest</li>
@@ -80,17 +69,18 @@
 </div><!--section4-->
 
 <div class="footer">
-<p>Join our Community</p>
-<ul class="social">
+  <p>Join our Community</p>
+  <ul class="social">
     <i class="fab fa-facebook"></i>
     <i class="fab fa-instagram"></i>
     <i class="fab fa-pinterest-p"></i>
     <i class="fab fa-linkedin"></i>
-
-</ul><!--social-->
+  </ul><!--social-->
 </div><!--#footer-->
-
-</div><!--#page-->
+<div class="footer_image">
+    <img src="./Assets/Images/volunteer_1280.png" alt="Helping Hands">
+</div><!--footer_image-->
+</div><!--root-->
 
 </body>
 </html>

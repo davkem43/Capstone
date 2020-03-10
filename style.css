@@ -1,13 +1,25 @@
 /* Style sheet */
 
-p {
-  color: rgb(0, 0, 0);
+a, p, li {
+  font-family: "Noto Sans JP", sans-serif;
+  color: white;
 }
 h1 {
+  font-family: "Noto Sans JP", sans-serif;
   font-size: 48px;
   color: turquoise;
 }
-.page {
+h2 {
+  font-family: "Noto Sans JP", sans-serif;
+  font-size: 24px;
+  color: turquoise;
+}
+h3 {
+  font-family: "Noto Sans JP", sans-serif;
+  font-size: 14px;
+  color: turquoise;
+}
+.root {
   background-color: hsl(252, 24%, 96%);
 }
 .nav {
@@ -22,7 +34,7 @@ h1 {
   border: 0.05px solid;
   padding: 1px;
   margin: 1px;
-  border-radius: 5px;
+  border-radius: 10px;
 }
 .header {
   display: flex;
@@ -34,7 +46,7 @@ h1 {
   border: 0.05px solid;
   padding-bottom: 1px;
   margin-bottom: 1px;
-  border-radius: 5px;
+  border-radius: 10px;
 }
 .charity_search {
   background-color: lightblue;
@@ -48,31 +60,7 @@ h1 {
   border: 0.05px solid;
   padding-bottom: 1px;
   margin-bottom: 1px;
-  border-radius: 5px;
-}
-,pledge_activity {
-  display: flex;
-  flex-flow: column wrap;
-  justify-content: center;
-  align-items: center;
-  max-height: 6vh;
-  max-width: 100%;
-  border: 0.05px solid;
-  padding-bottom: 1px;
-  margin-bottom: 1px;
-  border-radius: 5px;
-}
-.pledge_activity {
-  display: flex;
-  flex-flow: column wrap;
-  justify-content: center;
-  align-items: center;
-  max-height: 6vh;
-  max-width: 100%;
-  border: 0.05px solid;
-  padding-bottom: 1px;
-  margin-bottom: 1px;
-  border-radius: 5px;
+  border-radius: 10px;
 }
 .peer_search {
   background-color: lightblue;
@@ -86,7 +74,7 @@ h1 {
   border: 0.05px solid;
   padding-bottom: 1px;
   margin-bottom: 1px;
-  border-radius: 5px;
+  border-radius: 10px;
 }
 .spacer {
   display: flex;
@@ -98,7 +86,7 @@ h1 {
   border: 0.05px solid;
   padding-bottom: 1px;
   margin-bottom: 1px;
-  border-radius: 5px;
+  border-radius: 10px;
 }
 .section2 {
   display: flex;
@@ -110,7 +98,7 @@ h1 {
   border: 0.05px solid;
   padding-bottom: 1px;
   margin-bottom: 1px;
-  border-radius: 5px;
+  border-radius: 10px;
   flex-shrink: initial;
 }
 .section3 {
@@ -125,7 +113,7 @@ h1 {
   border: 0.05px solid;
   padding: 1px;
   margin-bottom: 1px;
-  border-radius: 5px;
+  border-radius: 10px;
 }
 .box_font {
   color: white;
@@ -135,9 +123,6 @@ h1 {
   /*font-family: 'Noto Serif', serif;
   font-family: Arial, Helvetica, sans-serif;
   font-size: 12pt;*/
-}
-#box1 {
-
 }
 .section4 {
   background-color: salmon;
@@ -149,11 +134,10 @@ h1 {
   max-width: 100%;
   padding-bottom: 1px;
   margin-bottom: 1px;
-  border-radius: 5px;
+  border-radius: 10px;
 }
-
 .footer {
-  background-color: rgb(54, 134, 97);
+  background-color: indianred;
   display: flex;
   flex-flow: row wrap;
   justify-content: center;
@@ -162,7 +146,19 @@ h1 {
   max-width: 100%;
   padding-bottom: 1px;
   margin-bottom: 1px;
-  border-radius: 5px;
+  border-radius: 10px;
+}
+.footer_image {
+  display: flex;
+  flex-direction: row;
+  align-content: center;
+  align-items: top;
+  max-height: 15em;
+  max-width: 100%;
+  border: 0.05px solid;
+  padding: 1px;
+  margin: 1px;
+  border-radius: 10px;
 }
 @media (min-width: 550px) {
   nav > .fa-bars {
