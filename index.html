@@ -11,34 +11,28 @@
 
 </head>
 <body>
-
 <div class="root">
     <div class="nav">
         <i class="fas fa-bars"></i>
-        <a href="./info.html" class="nav" id="What">What We Do</a>
-        <a href="./info.html" class="nav" id="How">Pledge Now!</a>
+        <a href="./info.html" class="nav" id="What">How it Works</a>
+        <a href="./Pledge.html" class="nav" id="How">Pledge Now!</a>
         <a href="./register.html" class="nav"id="Register">Register</a>
         <a href="./login.html" class="nav"id="SignIn">Sign In</a>
         <i class="fas fa-user"></i>
     </div><!--nav-->
-    <div class="header" id="slogan">
+    <div class="banner" id="slogan">
         <h1>Peer Pledge</h1>
-    </div><!--header-->
-    <div class="peer_search">
-        <input type="search" id="Peer Search" name="q" placeholder="Find Peers" size="50">
-        <button class="find">Find</button>
-        <p class = "search_text"> Enter the name of a Peer, Peer Group, city, or state</p>
-    </div><!--peer_search-->
-    <div class="banner" id="pledges">
-        <p></p>
     </div><!--banner-->
-    <div class="charity_search" id="charities">
-        <input type="search" id="Charity_Search" name="q" placeholder="Search Charities" size="50">
-        <button class="Search">Search</button>
-        <p class = "search_text">  Enter the name of a Charity, city, or state</p>
-    </div><!--charity_search-->
-
-<div class="section3">
+    <div class="find-search">
+    <form id="search-form">
+        <input type = "text" class="search-box" id="peer-search" name="q" placeholder="Enter a name or group" value="" maxlength="80" aria-label="Search for a peer by name">
+        <button class="search-box">Search</button>
+        <h3 class="search-box"> Friends and Pledge</h3>
+        <input type = "text" class="search-box" id="charity-search" name="q" placeholder="Enter a Charity name" value="" maxlength="80" aria-label="Search for a Charity by name">
+        <button class="search-box">Search</button>
+    </form>
+    </div><!--find-search-->
+    <div class="section3">
     <div class="section3" id="box1">
         <p class="box_font">Number of Charities: 4,322</p>
     </div><!--section3box1-->
@@ -53,8 +47,8 @@
 <div class="section4">
     <ul class="top3" id="topCharities"><h3>Top Charities</h3>
         <li>Charity A</li>
-        <li>Fund B</li>
-        <li>Foundation G</li>
+        <li>Charity B</li>
+        <li>Charity C</li>
     </ul><!--topCharities-->
     <ul class="top3" id="topPledges"><h3>Top Pledges</h3>
         <li>1st Place</li>
@@ -62,24 +56,24 @@
         <li>3rd Place</li>
     </ul><!--topPledges-->
     <ul class="top3" id="topMembers"><h3>Top Members</h3>
-        <li>Biggest</li>
-        <li>Next Biggest</li>
-        <li>Next Next Biggest</li>
+        <li>Member A</li>
+        <li>Member B</li>
+        <li>Member C</li>
     </ul><!--topMembers-->
 </div><!--section4-->
-
+<div class="footer_image">
+    <img src="./Assets/Images/volunteer_1280.png" alt="Helping Hands">
+</div><!--footer_image-->
 <div class="footer">
-  <p>Join our Community</p>
-  <ul class="social">
+    <p>Join our Community</p>
+    <ul class="social">
     <i class="fab fa-facebook"></i>
     <i class="fab fa-instagram"></i>
     <i class="fab fa-pinterest-p"></i>
     <i class="fab fa-linkedin"></i>
   </ul><!--social-->
 </div><!--#footer-->
-<div class="footer_image">
-    <img src="./Assets/Images/volunteer_1280.png" alt="Helping Hands">
-</div><!--footer_image-->
+
 </div><!--root-->
 
 </body>

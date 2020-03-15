@@ -3,18 +3,18 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Registration</title>
+  <title>Pledge</title>
   <link rel="stylesheet" href="./style.css"/> <!--CSS-->
 </head>
 <body>
-  <form id="register-form" onsubmit="return register()">
-    <h3>Register</h3>
+	<form id="pledge-form" onsubmit="return pledge()">
+    <h3>Pledge</h3>
 		<input type="text" placeholder="First Name" id="firstname" required/>
 		<input type="text" placeholder="Last Name" id="lastname" required/>
 		<input type="text" placeholder="Email Address" id="user-email" required/>
 		<input type="password" placeholder="Password" id="user-pass" required/>
-		<input type="password" placeholder="Verify Password" id="vuser-pass" required/>
-    <input type="submit" value="Register"/>
-    <input type="submit" value="Cancel"/>
+		<input type="amount" placeholder="Amount" id="amount" required/>
+		<input type="submit" value="Pledge"/>
+		<input type="submit" value="Cancel"/>
   </form>
 </body>

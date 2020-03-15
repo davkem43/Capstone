@@ -1,6 +1,8 @@
 /* Style sheet */
-
-a, p, li {
+b {
+  font-family: Arial, Helvetica, sans-serif;
+}
+a li {
   font-family: "Noto Sans JP", sans-serif;
   color: white;
 }
@@ -17,12 +19,15 @@ h2 {
 h3 {
   font-family: "Noto Sans JP", sans-serif;
   font-size: 14px;
-  color: turquoise;
+  color: rgb(48, 73, 182);
 }
 .root {
   background-color: hsl(252, 24%, 96%);
 }
 .nav {
+  font-family: 'Noto Sans JP', sans-serif;
+  font-size: 18px;
+  color: #fff;
   display: flex;
   flex-direction: row;
   align-content: center;
@@ -36,45 +41,33 @@ h3 {
   margin: 1px;
   border-radius: 10px;
 }
-.header {
+.banner {
   display: flex;
   flex-flow: row;
   justify-content: center;
   align-items: stretch;
-  max-height: 200em;
+  max-height: 180em;
   max-width: 100%;
   border: 0.05px solid;
   padding-bottom: 1px;
   margin-bottom: 1px;
   border-radius: 10px;
 }
-.charity_search {
-  background-color: lightblue;
+.find-search {
+  background-color: rgb(58, 146, 95);
   display: flex;
-  flex-flow: row;
-  justify-content: flex-start;
-  align-items: center;
-  align-content: center;
-  max-height: 10vh;
+  max-height: 20vh;
   max-width: 100%;
-  border: 0.05px solid;
   padding-bottom: 1px;
   margin-bottom: 1px;
   border-radius: 10px;
 }
-.peer_search {
-  background-color: lightblue;
+#search-form {
   display: flex;
-  flex-flow: row;
-  justify-content: flex-start;
+  align-content: space-between;
   align-items: center;
-  align-content: center;
-  max-height: 10vh;
-  max-width: 100%;
-  border: 0.05px solid;
-  padding-bottom: 1px;
-  margin-bottom: 1px;
-  border-radius: 10px;
+  justify-items: stretch;
+  padding: 4px 8px;
 }
 .spacer {
   display: flex;
@@ -139,10 +132,11 @@ h3 {
 .footer {
   background-color: indianred;
   display: flex;
-  flex-flow: row wrap;
-  justify-content: center;
-  align-content: stretch;
-  max-height: 20vh;
+  flex-direction: row;
+  align-content: center;
+  justify-content: space-evenly;
+  align-items: baseline;
+  max-height: 10vh;
   max-width: 100%;
   padding-bottom: 1px;
   margin-bottom: 1px;
@@ -152,8 +146,8 @@ h3 {
   display: flex;
   flex-direction: row;
   align-content: center;
-  align-items: top;
-  max-height: 15em;
+  justify-content: center;
+  max-height: 25vh;
   max-width: 100%;
   border: 0.05px solid;
   padding: 1px;
@@ -170,4 +164,87 @@ h3 {
   .hidden--mobile {
     display: none;
   }
+}
+
+/* Login form*/
+#login-form {
+  max-width: 400px;
+  margin: 0 auto;
+  padding: 20px;
+  background: #f2f2f2;
+  border-radius: 10px;
+}
+#login-form h1 {
+  text-align: center;
+  margin: 0 0 10px 0;
+}
+#login-form input {
+  box-sizing: border-box;
+  width: 100%;
+  margin: 10px;
+  padding: 10px;
+  border-radius: 10px;
+}
+#login-form input[type="submit"] {
+  border: 0;
+  background: #4367c4;
+  color: #fff;
+}
+/* Add a blue text color to links */
+a {
+  color: dodgerblue;
+}
+.signin {
+  text-align: center;
+}
+
+/* Register Form*/
+#register-form {
+  max-width: 400px;
+  margin: 0 auto;
+  padding: 20px;
+  background: #f2f2f2;
+  border-radius: 10px;
+}
+#register-form h1 {
+  text-align: center;
+  margin: 0 0 10px 0;
+}
+#register-form input {
+  box-sizing: border-box;
+  width: 100%;
+  margin: 10px;
+  padding: 10px;
+  border-radius: 10px;
+}
+#register-form input[type="submit"] {
+  border: 0;
+  background: #4367c4;
+  color: #fff;
+  border-radius: 10px;
+}
+/* Pledge Form*/
+#pledge-form {
+  max-width: 400px;
+  margin: 0 auto;
+  padding: 20px;
+  background: #f2f2f2;
+  border-radius: 10px;
+}
+#pledge-form h1 {
+  text-align: center;
+  margin: 0 0 10px 0;
+}
+#pledge-form input {
+  box-sizing: border-box;
+  width: 100%;
+  margin: 10px;
+  padding: 10px;
+  border-radius: 10px;
+}
+#pledge-form input[type="submit"] {
+  border: 0;
+  background: #4367c4;
+  color: #fff;
+  border-radius: 10px;
 }

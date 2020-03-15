@@ -1,42 +1,25 @@
-/* Add padding to containers */
-.container {
-  display: flex;
-  flex-direction: column;
-  align-content: center;
-  justify-content: center;
-  padding: 40px;
+/* Pledge Form */
+#pledge-form {
+  max-width: 400px;
+  margin: 0 auto;
+  padding: 20px;
+  background: #f2f2f2;
 }
-button[type="button"] {
-  display: flex;
-  flex-direction: row;
-  flex-flow: row;
-  flex-wrap: wrap;
-  align-content: center;
-  justify-content: center;
-  padding: 5px;
-  width: 10%;
+#pledge-form h1 {
+  text-align: center;
+  margin: 0 0 10px 0;
 }
-/* input fields */
-input[type="text"], input[type="password"] {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-content: center;
-  width: 25%;
-  padding: 15px;
-  margin: 5px 0 22px 0;
-  border: none;
-  background: #f1f1f1;
+#pledge-form input {
+  box-sizing: border-box;
+  width: 100%;
+  margin: 10px;
+  padding: 10px;
 }
-
-input[type="text"]:focus, input[type="password"]:focus {
-  background-color: #ddd;
-  outline: none;
+#pledge-form input[type=submit] {
+  border: 0;
+  background: #4367c4;
+  color: #fff;
 }
-/* Add a blue text color to links */
-a {
-  color: dodgerblue;
-}
-.signin {
+.pledge {
   text-align: center;
 }
