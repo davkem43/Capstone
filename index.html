@@ -6,28 +6,30 @@
 <title>PeerPledge</title>
 <link rel="stylesheet" href="./style.css"/> <!--CSS-->
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css"> <!--normalize-->
-<link href="https://fonts.googleapis.com/css?family=Noto+Sans+JP|Noto+Sans+TC|Noto+Serif&display=swap" rel="stylesheet"> <!--Googlefonts-->
-<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.1/css/all.min.css" rel="stylesheet"> <!--fontawesome-->
+<link href="https://fonts.googleapis.com/css?family=Noto+Sans+JP|Noto+Sans+TC|Noto+Serif&display=swap" rel="stylesheet"> <!--Google-fonts-->
+<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.1/css/all.min.css" rel="stylesheet"> <!--font-awesome-->
 
 </head>
 <body>
 <div class="root">
-    <div class="nav">
-        <i class="fas fa-bars"></i>
+<nav>
+    <i class="fas fa-bars"></i>
+      <ul id="hidden--mobile nav-links">
         <a href="./info.html" class="nav" id="What">How it Works</a>
         <a href="./Pledge.html" class="nav" id="How">Pledge Now!</a>
         <a href="./register.html" class="nav"id="Register">Register</a>
         <a href="./login.html" class="nav"id="SignIn">Sign In</a>
-        <i class="fas fa-user"></i>
-    </div><!--nav-->
+      </ul>
+</nav><!--nav-->
     <div class="banner" id="slogan">
         <h1>Peer Pledge</h1>
+        <h2>The Home of Friends Giving</h2>
     </div><!--banner-->
     <div class="find-search">
     <form id="search-form">
         <input type = "text" class="search-box" id="peer-search" name="q" placeholder="Enter a name or group" value="" maxlength="80" aria-label="Search for a peer by name">
         <button class="search-box">Search</button>
-        <h3 class="search-box"> Friends and Pledge</h3>
+        <h3 class="search-box">Find Friends and Pledge</h3>
         <input type = "text" class="search-box" id="charity-search" name="q" placeholder="Enter a Charity name" value="" maxlength="80" aria-label="Search for a Charity by name">
         <button class="search-box">Search</button>
     </form>
@@ -75,6 +77,6 @@
 </div><!--#footer-->
 
 </div><!--root-->
-
+<script src="index.js"></script>
 </body>
 </html>
