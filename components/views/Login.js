@@ -1,5 +1,5 @@
 export default () => `
-<form id="login-form" onsubmit="return login()">
+  <form id="login-form" onsubmit="return login()">
     <h3>Sign In</h3>
     <input type="text" placeholder="Email Address" id="user-email" required/>
     <input type="password" placeholder="Password" id="user-pass" required/>

@@ -1,4 +1,5 @@
-export default () => `
+export default () => {
+  return `
 <div class="footer_image">
     <img src="./Assets/Images/volunteer_1280.png" alt="Helping Hands">
   </div><!--footer_image-->
@@ -11,3 +12,4 @@ export default () => `
     <i class="fab fa-linkedin"></i>
   </div><!--#footer-->
 `;
+};
