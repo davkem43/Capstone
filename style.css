@@ -71,8 +71,9 @@ nav > ul > a {
   border-radius: 10px;
 }
 .search-box {
-  color: coral;
-  border-radius: 5px;
+color: blue;
+display: flex
+border-radius: 10px;
 }
 .section3 {
   background-color: rgb(166, 166, 206);

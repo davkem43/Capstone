@@ -4,4 +4,4 @@
 
 ### The target audience will be mentors, peers, instructors, recruiters, investors, and ultimately, people interested in growing global generosity (G-3).
 
-#### In this repository you can find everything from the conceptual drawings to thefinished project.
+#### In this repository you can find everything from the conceptual drawings to the finished product.
