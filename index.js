@@ -65,3 +65,15 @@ document.getElementById("charity").addEventListener("click", () => {
   console.log("tried to open charity search results");
   console.log("button pressed");
 });
+
+const charityCount = state.Charities.length;
+document.getElementById("numchar").textContent = `Charities: ${charityCount}`;
+console.log(`# of Charities ${charityCount}`);
+
+const pledgeCount = state.Pledges.length;
+document.getElementById("numdollars").textContent = `Pledges: ${pledgeCount}`;
+console.log(`# of Pledges ${pledgeCount}`);
+
+const memberCount = state.Members.length;
+document.getElementById("nummembers").textContent = `Members: ${memberCount}`;
+console.log(`# of Members ${memberCount}`);

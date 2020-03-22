@@ -89,9 +89,11 @@ nav > ul > a {
   max-width: 100%;
   color: #fff;
   font-family: Arial, Helvetica, sans-serif;
+  font-size: 24px;
   padding: 1px;
   margin: 1px;
   border-radius: 10px;
+  animation-direction: normal;
 }
 .section4 {
   background-color: salmon;

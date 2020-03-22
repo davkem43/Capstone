@@ -6,10 +6,10 @@ export default () => `
     <input type = "text" class="search-box" size="40" id="charity-search" name="q" placeholder="Enter a Charity name" value="" maxlength="40" aria-label="Search for a Charity by name">
     <button class="search-box" id="charity" form="">Search</button>
 </div><!--find-search-->
-    <div class="section3">
-    <p>Number of Charities: count</p>
-    <p>Donated this year: ytd</p>
-    <p>Members per month: members</p>
+<div class="section3">
+    <p id="numchar"> </p>
+    <p id="numdollars"> </p>
+    <p id ="nummembers"> </p>
 </div><!--#section3-->
 <div class="section4">
     <ul class="top3" id="topCharities"><h3>Top Charities</h3>
