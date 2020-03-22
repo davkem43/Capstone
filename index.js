@@ -1,23 +1,51 @@
 //import * as components from "./components"
-import { Nav, Banner, Search, Section3, Section4, Footer } from "./components";
+import { Nav, Banner, Main, Footer } from "./components";
+console.log("step1");
 
-import { Pledge, Login, Register } from "./components/views";
+import * as state from "./store";
+console.log("step2");
+console.log(state);
+import Navigo from "navigo";
+//import { capitalize } from "lodash";
 
-//create a function to render the page
+import axios from "axios";
+console.log("step3");
+
+const router = new Navigo(window.location.origin);
+console.log("step4");
+// router
+//   .on({
+//     "/": () => render(state.Main),
+//     ":page": params => {
+//       let page = capitalize(params.page);
+//       render(state[page]);
+//     }
+//   })
 function render() {
   document.querySelector(".root").innerHTML = `
-${Nav()}
-${Banner()}
-${Search()}
-${Section3()}
-${Section4()}
-${Footer()}
+  ${Nav()}
+  ${Banner()}
+  ${Main(state.Home)}
+  ${Footer()}
 `;
 }
 
-//Invoke the function
-render();
-
+console.log("step5");
+//Call function
+render(state);
+console.log("rendered");
+addNavEventListeners();
+console.log("step6");
+function addNavEventListeners() {
+  document.querySelectorAll("nav a").forEach(navLink =>
+    navLink.addEventListener("click", event => {
+      event.preventDefault();
+      render(state[event.target.title]);
+      router.updatePageLinks();
+    })
+  );
+}
+console.log("step7");
 // add menu toggle to hamburger icon in nav bar
 document.querySelector(".fa-bars").addEventListener("click", () => {
   document.querySelector("nav > ul").classList.toggle("hidden--mobile");
