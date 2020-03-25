@@ -5,22 +5,43 @@ console.log("step1");
 import * as state from "./store";
 console.log("step2");
 console.log(state);
+
 import Navigo from "navigo";
-//import { capitalize } from "lodash";
+import { capitalize } from "lodash";
 
 import axios from "axios";
 console.log("step3");
 
-const router = new Navigo(window.location.origin);
-console.log("step4");
-// router
-//   .on({
-//     "/": () => render(state.Main),
-//     ":page": params => {
-//       let page = capitalize(params.page);
-//       render(state[page]);
+axios
+  .get(
+    "https://api.openweathermap.org/data/2.5/weather?q=affton&APPID=c9e76aa5f26df1294bf206610a0c0b46"
+  )
+  .then(response => {
+    state.Home.city = response.data.name;
+    state.Home.temp = response.data.main.temp;
+    state.Home.condition = response.data.main;
+    console.log(state.Home.temp - 273.15);
+  });
+
+import "./env";
+// axios
+//   .get(`https://api.github.com/users/${process.env.davkem43}/repos`, {
+//     headers: {
+//       Authorization: `token ${process.env.GITHUB_TOKEN}`
 //     }
 //   })
+//   .then(response => console.log(response.data));
+
+const router = new Navigo(window.location.origin);
+console.log("step4");
+router.on({
+  "/": () => render(state.Home),
+  ":page": params => {
+    let page = capitalize(params.page);
+    render(state[page]);
+  }
+});
+
 function render() {
   document.querySelector(".root").innerHTML = `
   ${Nav()}
@@ -30,12 +51,12 @@ function render() {
 `;
 }
 
-console.log("step5");
+//console.log("step5");
 //Call function
 render(state);
-console.log("rendered");
+//console.log("rendered");
 addNavEventListeners();
-console.log("step6");
+//console.log("step6");
 function addNavEventListeners() {
   document.querySelectorAll("nav a").forEach(navLink =>
     navLink.addEventListener("click", event => {
@@ -73,6 +94,9 @@ console.log(`# of Charities ${charityCount}`);
 const pledgeCount = state.Pledges.length;
 document.getElementById("numdollars").textContent = `Pledges: ${pledgeCount}`;
 console.log(`# of Pledges ${pledgeCount}`);
+
+const sumPledges = state.Pledges;
+console.log(sumPledges);
 
 const memberCount = state.Members.length;
 document.getElementById("nummembers").textContent = `Members: ${memberCount}`;
