@@ -121,11 +121,12 @@ nav > ul > a {
   margin-bottom: 1px;
   border-radius: 10px;
 }
-#footer-image {
-  background-color: #fff;
+.footer-image {
   display: flex;
-  flex-direction: row;
-  max-height: 20vh;
+  flex-direction: column;
+  align-items: center;
+  align-content: center;
+  max-height: 40vh;
   max-width: 100%;
   padding: 1px;
   margin: 1px;
@@ -144,25 +145,25 @@ nav > ul > a {
 }
 
 /* Login form*/
-#login-form {
+#Login-form {
   max-width: 400px;
   margin: 0 auto;
   padding: 20px;
   background: #f2f2f2;
   border-radius: 10px;
 }
-#login-form h1 {
+#Login-form h1 {
   text-align: center;
   margin: 0 0 10px 0;
 }
-#login-form input {
+#Login-form input {
   box-sizing: border-box;
   width: 100%;
   margin: 10px;
   padding: 10px;
   border-radius: 10px;
 }
-#login-form input[type="submit"] {
+#Login-form input[type="submit"] {
   border: 0;
   background: #4367c4;
   color: #fff;
@@ -173,50 +174,50 @@ nav > ul > a {
 } */
 
 /* Register Form*/
-#register-form {
+#Register-form {
   max-width: 400px;
   margin: 0 auto;
   padding: 20px;
   background: #f2f2f2;
   border-radius: 10px;
 }
-#register-form h1 {
+#Register-form h1 {
   text-align: center;
   margin: 0 0 10px 0;
 }
-#register-form input {
+#Register-form input {
   box-sizing: border-box;
   width: 100%;
   margin: 10px;
   padding: 10px;
   border-radius: 10px;
 }
-#register-form input[type="submit"] {
+#Register-form input[type="submit"] {
   border: 0;
   background: #4367c4;
   color: #fff;
   border-radius: 10px;
 }
 /* Pledge Form*/
-#pledge-form {
+#Pledge-form {
   max-width: 400px;
   margin: 0 auto;
   padding: 20px;
   background: #f2f2f2;
   border-radius: 10px;
 }
-#pledge-form h1 {
+#Pledge-form h1 {
   text-align: center;
   margin: 0 0 10px 0;
 }
-#pledge-form input {
+#Pledge-form input {
   box-sizing: border-box;
   width: 100%;
   margin: 10px;
   padding: 10px;
   border-radius: 10px;
 }
-#pledge-form input[type="submit"] {
+#Pledge-form input[type="submit"] {
   border: 0;
   background: #4367c4;
   color: #fff;

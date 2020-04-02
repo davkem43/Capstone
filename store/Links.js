@@ -1,5 +1,4 @@
-// export default [
-//   { title: "Login", text: "Login" },
-//   { title: "Register", text: "Register" },
-//   { title: "Pledge", text: "Pledge" }
-// ];
+export default [
+  { title: "Register", text: "Register" },
+  { title: "Login", text: "Login" }
+];

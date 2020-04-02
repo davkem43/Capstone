@@ -1,7 +1,7 @@
 export default () => {
   return `
-    <div id="footer-image">
-      <img src="./components/volunteer-1280.png" alt="Helping Hands">
+    <div class="footer-image">
+      <img src= "./components/volunteer-1280.png" alt="Helping Hands">
     </div><!--footer-image-->
     <div class="footer">
       <p>Join our Community</p>

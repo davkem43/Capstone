@@ -1,8 +1,8 @@
-import * as Views from "./views";
+import * as views from "./views";
 
 export default st => {
   console.log(st);
   return `
-${Views[st.view](st)}
+${views[st.view](st)}
 `;
 };
