@@ -7,6 +7,6 @@ export default () => `
 		<input type="password" placeholder="Password" id="user-pass" required/>
 		<input type="password" placeholder="Verify Password" id="vuser-pass" required/>
     <input type="submit" id="register" value="Register"/>
-    <input type="submit" value="Cancel"/>
+    <input type="submit" id="cancel" value="Cancel"/>
   </form>
   `;

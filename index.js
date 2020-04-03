@@ -47,7 +47,8 @@ export function render(st = state.Home) {
   addRegisterListener(st);
   addToggleEventListeners();
   router.updatePageLinks;
-  addPledgeListener(st);
+  addPledgeNowListener(st);
+  addCancelButtonListener(st);
 }
 
 // Fix this...add menu toggle to hamburger icon in nav bar
@@ -162,13 +163,46 @@ function getUserInfoFromDb(email) {
     );
 }
 
+// Add listener for Cancel buttons to return home
+function addCancelButtonListener(st) {
+  if (state.view !== "Home") {
+    document.getElementById("cancel").addEventListener("click", event => {
+      event.preventDefault();
+      console.log("cancel pressed, returning home");
+      render(state.Home);
+    });
+  }
+}
+
 // Add listener for Pledge button
-function addPledgeListener(st) {
-  if (st.view === "Home") {
+function addPledgeNowListener(st) {
+  if (state.view === "Home") {
     document.getElementById("pledge").addEventListener("click", event => {
       event.preventDefault();
       console.log("Pledge Now pressed");
-      render(state.Pledge);
+      // let searchData = Array.from(event.target.elements);
+      // const searchInputs = searchData.map(input => input.value);
+      // let peer = searchInputs[0];
+      // let charity = searchInputs[4];
+      // let email = state.User.email;
+      // render(state.Pledge);
+      // addPledgeSubmitListener(st);
+    });
+  }
+}
+
+// Pull values for peer and charity into Pledge form
+function addPledgeSubmitListener(st) {
+  if (st.view === "Pledge") {
+    document.getElementById("Pledge-form").addEventListener("submit", event => {
+      event.preventDefault();
+      // let pledgeData = Array.from(event.target.elements);
+      // const inputs = pledgeData.map(input => input.value);
+      // let peer = inputs[0];
+      // let charity = inputs[1];
+      // let email = inputs[2];
+      // let password = inputs[3];
+      // let amount = inputs[4];
     });
   }
 }

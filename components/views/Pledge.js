@@ -7,6 +7,6 @@ export default () => `
 <input type="password" placeholder="Password" id="user-pass" autocomplete="current-password" required/>
 <input type="amount" placeholder="Amount" pattern="0.00" id="amount" required/>
 <input type="submit" value="Pledge"/>
-<input type="submit" value="Cancel"/>
+<input type="submit" id="cancel" value="Cancel"/>
 </form>
 `;

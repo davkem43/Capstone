@@ -1,8 +1,5 @@
 export default () => {
   return `
-    <div class="footer-image">
-      <img src= "./components/volunteer-1280.png" alt="Helping Hands">
-    </div><!--footer-image-->
     <div class="footer">
       <p>Join our Community</p>
       <ul class="social">
@@ -11,5 +8,8 @@ export default () => {
         <i class="fab fa-pinterest-p"></i>
         <i class="fab fa-linkedin"></i>
     </div><!--#footer-->
+    <div class="footer-image">
+      <img src = "https://github.com/davkem43/Capstone/blob/master/lib/volunteer-1280.png?raw=true">
+    </div><!--footer-image-->
 `;
 };
