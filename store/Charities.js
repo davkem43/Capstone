@@ -4,5 +4,6 @@ export default {
   charityId: "",
   charityName: "",
   city: "",
-  state: ""
+  state: "",
+  url: ""
 };

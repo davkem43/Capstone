@@ -1,5 +1,5 @@
 import "../env";
-console.log(process.env.FIREBASE_API);
+
 export default {
   apiKey: process.env.FIREBASE_API,
   authDomain: "david-s-project-f6d5c.firebaseapp.com",

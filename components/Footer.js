@@ -9,7 +9,7 @@ export default () => {
         <i class="fab fa-linkedin"></i>
     </div><!--#footer-->
     <div class="footer-image">
-      <img src = "https://github.com/davkem43/Capstone/blob/master/lib/volunteer-1280.png?raw=true">
+      <img src = "https://github.com/davkem43/Capstone/blob/master/lib/volunteer.png?raw=true">
     </div><!--footer-image-->
 `;
 };
