@@ -25,11 +25,11 @@ axios
     "https://api.openweathermap.org/data/2.5/weather?q=affton&APPID=c9e76aa5f26df1294bf206610a0c0b46"
   )
   .then(response => {
+    const farenheit = Math.round((response.data.main.temp - 273.15) * 1.8 + 32);
+    console.log("temp is", farenheit);
     state.Home.city = response.data.name;
-    state.Home.temp = response.data.main.temp;
+    state.Home.temp = farenheit;
     state.Home.weather.description = response.data.main;
-    const celcius = (response.data.main.temp - 273.15) * 0.555 + 32;
-    console.log("temp is", celcius);
   });
 
 //Function to render State
@@ -48,7 +48,7 @@ export function render(st = state.Home) {
   addPledgeNowListener(st);
   addCancelButtonListener(st);
   addPledgeSubmitListener(st);
-  addStatistics(st);
+  //addStatistics();
 }
 
 //Render the Navigation links
@@ -102,14 +102,27 @@ function addRegisterListener(st) {
   }
 }
 
+//Add user to state only after login
+function addUserToState(first, last, email, status) {
+  state.User.push({
+    userName: first + last,
+    firstName: first,
+    lastName: last,
+    email: email,
+    signedIn: status
+  });
+  console.log("stateuser", state.User);
+}
+
 // Add user to State and Firebase
 function addUserToStateAndDb(first, last, email, password) {
-  state.User.userName = first + last;
-  state.User.email = email;
-  state.User.firstName = first;
-  state.User.lastName = last;
-  state.User.signedIn = true;
-
+  state.User.push({
+    userName: first + last,
+    firstName: first,
+    lastName: last,
+    email: email,
+    signedIn: true
+  });
   db.collection("users").add({
     firstname: first,
     lastname: last,
@@ -130,33 +143,30 @@ function addLoginListener(st) {
       let password = inputs[1];
       auth.signInWithEmailAndPassword(email, password).then(response => {
         console.log("user signed in", response);
-        getUserInfoFromDb(email);
+        addUserStatusToDb(email);
         render(state.Home);
-        console.log("email", email);
       });
     });
   }
 }
 
 //Function pull user info from db on Login
-function getUserInfoFromDb(email) {
+function addUserStatusToDb(email) {
   db.collection("users")
     .get()
     .then(snapshot =>
       snapshot.docs.forEach(doc => {
         if (email === doc.data().email) {
           let id = doc.id;
+          let email = doc.data().email;
+          let first = doc.data().firstname;
+          let last = doc.data().lastname;
+          let status = doc.data().signedIn;
           db.collection("users")
             .doc(id)
             .update({ signedIn: true });
-          console.log("signed in db");
-          let user = doc.data();
-          state.User.userName = user.firstname + user.lastname;
-          state.User.firstName = user.firstname;
-          state.User.lastName = user.lastname;
-          state.User.email = email;
-          state.User.signedIn = true;
-          console.log("state", state.User);
+          console.log("user signed in db");
+          addUserToState(first, last, email, status);
         }
       })
     );
@@ -181,28 +191,25 @@ function addPledgeSubmitListener(st) {
     document.getElementById("Pledge-form").addEventListener("submit", event => {
       event.preventDefault();
       console.log("creating pledge");
-      createPledge(st);
+      createPledge();
     });
   }
 }
 
 // Save Pledge form data on submit and call db to add
-function createPledge(st) {
+function createPledge() {
   console.log("created pledge");
-  document.getElementById("Pledge-form").addEventListener("submit", event => {
-    event.preventDefault();
-    console.log("pledge listener created");
-    let pledgeData = Array.from(event.target.elements);
-    const inputs = pledgeData.map(input => input.value);
-    console.log("inputs", inputs);
-    let peer = inputs[0];
-    let charity = inputs[1];
-    let email = inputs[2];
-    let amount = inputs[4];
-    let date = Date();
-    console.log("adding pledge to db", amount);
-    addPledgeToDb(date, amount, charity, email, peer);
-  });
+  console.log("pledge listener created");
+  let pledgeData = Array.from(event.target.elements);
+  const inputs = pledgeData.map(input => input.value);
+  console.log("inputs", inputs);
+  let peer = inputs[0];
+  let charity = inputs[1];
+  let email = inputs[2];
+  let amount = inputs[3];
+  let date = Date();
+  console.log("adding pledge to db", amount);
+  addPledgeToDb(date, amount, charity, email, peer);
 }
 
 // Add pledge to db with a generated id.
@@ -217,7 +224,7 @@ function addPledgeToDb(date, amount, charity, email, peer) {
     })
     .then(function(docRef) {
       console.log("Document written with ID: ", docRef.id);
-      addPledgeToState();
+      addPledgeToState(date, peer, charity, email, amount);
     })
     .catch(function(error) {
       console.error("Error adding document: ", error);
@@ -226,22 +233,23 @@ function addPledgeToDb(date, amount, charity, email, peer) {
 
 //Add pledge to state and then db
 function addPledgeToState(date, peer, charity, email, amount) {
-  state.Pledge.peerEmail = peer;
-  state.Pledge.charity = charity;
-  state.Pledge.email = email;
-  state.Pledge.amount = amount;
-  state.Pledge.addedOn = date;
-  console.log("added to db");
+  state.Pledges.push({
+    addedOn: date,
+    amount: amount,
+    charityName: charity,
+    email: email,
+    peerEmail: peer
+  });
+  console.log("state", state.Pledges);
   render(state.home);
 }
 
 //Calculate statistics
-function addStatistics(st) {
-  //const topPledge = db.collection.pledges.amount;
-  // document.getElementById("numdollars").textContent = `Pledges: ${topPledge}`;
-  console.log("need to define statistics");
 
-  // const memberCount = db.collection.users.length;
-  // document.getElementById("Members").textContent = `Members: ${memberCount}`;
-  // console.log(`# of Members ${memberCount}`);
-}
+//const topPledge = db.collection.pledges.amount;
+// document.getElementById("numdollars").textContent = `Pledges: ${topPledge}`;
+console.log("need to define statistics");
+
+// const memberCount = db.collection.users.length;
+// document.getElementById("Members").textContent = `Members: ${memberCount}`;
+// console.log(`# of Members ${memberCount}`);

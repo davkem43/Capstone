@@ -1,4 +1,3 @@
-export { default as Members } from "./Members";
 export { default as Pledges } from "./Pledges";
 export { default as Home } from "./Home";
 export { default as User } from "./User";
