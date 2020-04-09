@@ -5,7 +5,6 @@ import Navigo from "navigo";
 import { capitalize } from "lodash";
 import axios from "axios";
 
-import "./env";
 import { auth, db } from "./firebase";
 
 // ROUTER
