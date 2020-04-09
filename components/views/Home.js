@@ -7,6 +7,7 @@ export default st => `
     <p id="Number of Charities"> </p>
     <p id="Pledges"> </p>
     <p id ="Members"> </p>
+    <p id="message"> </p>
 </div><!--#section3-->
 <div class="section4">
     <ul class="top3" id="topCharities"><h3>Top Charities</h3>
