@@ -48,6 +48,7 @@ export function render(st = state.Home) {
   addPledgeNowListener(st);
   addCancelButtonListener(st);
   addPledgeSubmitListener(st);
+  addListenForSignOut(st);
   //addStatistics();
 }
 
@@ -104,25 +105,21 @@ function addRegisterListener(st) {
 
 //Add user to state only after login
 function addUserToState(first, last, email, status) {
-  state.User.push({
-    userName: first + last,
-    firstName: first,
-    lastName: last,
-    email: email,
-    signedIn: status
-  });
-  console.log("stateuser", state.User);
+  state.User.firstName = first;
+  state.User.lastName = last;
+  state.User.email = email;
+  state.User.signedIn = status;
+  console.log("state user", state.User);
 }
 
 // Add user to State and Firebase
 function addUserToStateAndDb(first, last, email, password) {
-  state.User.push({
-    userName: first + last,
-    firstName: first,
-    lastName: last,
-    email: email,
-    signedIn: true
-  });
+  state.User.firstName = first;
+  state.User.lastName = last;
+  state.User.email = email;
+  state.User.signedIn = status;
+  console.log("state user", state.User);
+
   db.collection("users").add({
     firstname: first,
     lastname: last,
@@ -142,7 +139,7 @@ function addLoginListener(st) {
       let email = inputs[0];
       let password = inputs[1];
       auth.signInWithEmailAndPassword(email, password).then(response => {
-        console.log("user signed in", response);
+        console.log("user auth success", email);
         addUserStatusToDb(email);
         render(state.Home);
       });
@@ -158,14 +155,14 @@ function addUserStatusToDb(email) {
       snapshot.docs.forEach(doc => {
         if (email === doc.data().email) {
           let id = doc.id;
-          let email = doc.data().email;
-          let first = doc.data().firstname;
-          let last = doc.data().lastname;
-          let status = doc.data().signedIn;
           db.collection("users")
             .doc(id)
             .update({ signedIn: true });
-          console.log("user signed in db");
+          let email = doc.data().email;
+          let first = doc.data().firstname;
+          let last = doc.data().lastname;
+          let status = true;
+          console.log("user signed in db", email);
           addUserToState(first, last, email, status);
         }
       })
@@ -241,7 +238,62 @@ function addPledgeToState(date, peer, charity, email, amount) {
     peerEmail: peer
   });
   console.log("state", state.Pledges);
-  render(state.home);
+  render(state.Home);
+}
+// function addMessageToHome () {
+//   document.querySelector("#message").textContent = `You pledged ${state.Pledges.amount} to $`
+// }
+
+function addListenForSignOut(st) {
+  document.getElementById("Logout").addEventListener("click", event => {
+    event.preventDefault();
+    let email = state.User.email;
+    console.log("signout clicked", email);
+    logoutUserInStateAndDb(email);
+  });
+}
+
+function logoutUserInStateAndDb(email) {
+  // if user is logged in,
+
+  event.preventDefault();
+  console.log("logging out", email);
+  // log out functionality
+  logOutUserInDb(email);
+  resetUserInState(email);
+  //update user in database
+  db.collection("users").get;
+  render(state.Home);
+
+  console.log(state.User);
+}
+
+function logOutUserInDb(email) {
+  db.collection("users")
+    .get()
+    .then(snapshot =>
+      snapshot.docs.forEach(doc => {
+        if (email === doc.data().email) {
+          let id = doc.id;
+          db.collection("users")
+            .doc(id)
+            .update({ signedIn: false });
+          console.log("signout email", doc.email);
+          console.log("db coll id", id);
+        }
+      })
+    );
+  console.log("user signed out in db", id);
+}
+
+function resetUserInState(email) {
+  state.User.push({
+    userName: "",
+    firstName: "",
+    lastName: "",
+    email: "",
+    signedIn: false
+  });
 }
 
 //Calculate statistics

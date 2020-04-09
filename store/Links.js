@@ -1,5 +1,1 @@
-export default [
-  { title: "Register", text: "Register" },
-  { title: "Login", text: "Login" },
-  { title: "Top 100", text: "Top 100" }
-];
+export default ["Register", "Login", "Logout", "Top 100"];
