@@ -4,15 +4,15 @@ export default () => `
 </div><!--find-search-->
 
 <div class="section4">
+    <div id="div1">
+    <p id="p1"></p>
+    <p id="p2"></p>
+    </div>
     <ul class="top3charities"><h3>Top Charities</h3>
-        <li>Charity A</li>
-        <li>Charity B</li>
-        <li>Charity C</li>
+        <li>UNICEF</li>
+        <li>American Red Cross</li>
+        <li>Cardinals Care</li>
     </ul><!--topCharities-->
-    <ul class="top3pledges"><h3>Top Pledges</h3>
-        <li>1st Place</li>
-        <li>2nd Place</li>
-        <li>3rd Place</li>
-    </ul><!--topPledges-->
+
 </div><!--section4-->
     `;

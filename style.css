@@ -99,11 +99,14 @@ nav > ul > a {
 }
 .section4 {
   background-color: rgb(105, 142, 184);
+  font-family: "Noto Sans JP", sans-serif;
+  font-size: 18px;
+  color: black;
   display: flex;
-  flex-direction: row;
+  flex-direction: column;
   flex-wrap: wrap;
   justify-content: space-evenly;
-  align-content: stretch;
+  align-content: center;
   max-height: 40vh;
   max-width: 100%;
   padding-bottom: 1px;
@@ -112,6 +115,10 @@ nav > ul > a {
 }
 .footer {
   background-color: rgba(148, 149, 158, 0.671);
+  font-family: "Noto Sans JP", sans-serif;
+  font-size: 12px;
+  color: black;
+
   display: flex;
   flex-direction: row;
   align-content: center;

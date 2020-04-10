@@ -7,3 +7,11 @@
 #### In this repository you can find everything from the conceptual drawings to the finished product.
 
 ##### It's a work in process.
+
+**Github:  https://github.com/davkem43/Capstone**
+
+**Firebase:  https://console.firebase.google.com/u/0/project/david-s-project-f6d5c/overview**
+
+**Trello: https://trello.com/b/5vdBVpQd/capstone-david-kemp**
+
+**Netlify:  https://focused-kare-e95b13.netlify.com/**
