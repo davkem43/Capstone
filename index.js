@@ -12,8 +12,8 @@ const router = new Navigo(window.location.origin);
 
 router
   .on({
-    ":page": params => render(state[capitalize(params.page)]),
-    "/": () => render(state.Home)
+    ":page": (params) => render(state[capitalize(params.page)]),
+    "/": () => render(state.Home),
   })
   .resolve();
 router.updatePageLinks();
@@ -23,12 +23,12 @@ axios
   .get(
     "https://api.openweathermap.org/data/2.5/weather?q=affton&APPID=c9e76aa5f26df1294bf206610a0c0b46"
   )
-  .then(response => {
+  .then((response) => {
     const farenheit = Math.round((response.data.main.temp - 273.15) * 1.8 + 32);
     console.log("temp is", farenheit);
     state.Home.city = response.data.name;
     state.Home.temp = farenheit;
-    state.Home.weather.description = response.data.main;
+    state.Home.description = response.data.main;
   });
 
 //Function to render State
@@ -48,13 +48,13 @@ export function render(st = state.Home) {
   addCancelButtonListener(st);
   addPledgeSubmitListener(st);
   addListenForSignOut(st);
-  //addStatistics();
+  addMessageForUser();
 }
 
 //Render the Navigation links
 function addNavEventListeners() {
-  document.querySelectorAll("nav a").forEach(navLink =>
-    navLink.addEventListener("click", event => {
+  document.querySelectorAll("nav a").forEach((navLink) =>
+    navLink.addEventListener("click", (event) => {
       event.preventDefault();
       render(state[event.target.text]);
       router.updatePageLinks();
@@ -67,7 +67,7 @@ function addCancelButtonListener(st) {
   if (st.view === "Home") {
     return;
   } else {
-    document.getElementById("cancel").addEventListener("click", event => {
+    document.getElementById("cancel").addEventListener("click", (event) => {
       event.preventDefault();
       console.log("cancel pressed, returning home");
       render(state.Home);
@@ -80,24 +80,26 @@ function addRegisterListener(st) {
   if (st.view === "Register") {
     document
       .getElementById("Register-form")
-      .addEventListener("submit", event => {
+      .addEventListener("submit", (event) => {
         event.preventDefault();
         addCancelButtonListener(st);
         let userData = Array.from(event.target.elements);
         console.log(event.target.elements);
         //
-        const inputs = userData.map(input => input.value);
+        const inputs = userData.map((input) => input.value);
         let firstName = inputs[0];
         let lastName = inputs[1];
         let email = inputs[2];
         let password = inputs[3];
         //
         //create user in Firebase db
-        auth.createUserWithEmailAndPassword(email, password).then(response => {
-          console.log("user registered", response);
-          addUserToStateAndDb(firstName, lastName, email, password);
-          render(state.Home);
-        });
+        auth
+          .createUserWithEmailAndPassword(email, password)
+          .then((response) => {
+            console.log("user registered", response);
+            addUserToStateAndDb(firstName, lastName, email, password);
+            render(state.Home);
+          });
       });
   }
 }
@@ -124,25 +126,27 @@ function addUserToStateAndDb(first, last, email, password) {
     lastname: last,
     email: email,
     password: password,
-    signedIn: true
+    signedIn: true,
   });
 }
 
 // Listen for and process Login events
 function addLoginListener(st) {
   if (st.view === "Login") {
-    document.getElementById("Login-form").addEventListener("submit", event => {
-      event.preventDefault();
-      let userInfo = Array.from(event.target.elements);
-      const inputs = userInfo.map(input => input.value);
-      let email = inputs[0];
-      let password = inputs[1];
-      auth.signInWithEmailAndPassword(email, password).then(response => {
-        console.log("user auth success", email);
-        addUserStatusToDb(email);
-        render(state.Home);
+    document
+      .getElementById("Login-form")
+      .addEventListener("submit", (event) => {
+        event.preventDefault();
+        let userInfo = Array.from(event.target.elements);
+        const inputs = userInfo.map((input) => input.value);
+        let email = inputs[0];
+        let password = inputs[1];
+        auth.signInWithEmailAndPassword(email, password).then(() => {
+          addUserStatusToDb(email);
+          render(state.Home);
+          console.log("user auth success", email);
+        });
       });
-    });
   }
 }
 
@@ -150,13 +154,11 @@ function addLoginListener(st) {
 function addUserStatusToDb(email) {
   db.collection("users")
     .get()
-    .then(snapshot =>
-      snapshot.docs.forEach(doc => {
+    .then((snapshot) =>
+      snapshot.docs.forEach((doc) => {
         if (email === doc.data().email) {
           let id = doc.id;
-          db.collection("users")
-            .doc(id)
-            .update({ signedIn: true });
+          db.collection("users").doc(id).update({ signedIn: true });
           let email = doc.data().email;
           let first = doc.data().firstname;
           let last = doc.data().lastname;
@@ -171,7 +173,7 @@ function addUserStatusToDb(email) {
 // Add listener for Pledge Now button
 function addPledgeNowListener(st) {
   if (st.view === "Home") {
-    document.getElementById("pledge").addEventListener("click", event => {
+    document.getElementById("pledge").addEventListener("click", (event) => {
       event.preventDefault();
       console.log("button", state);
       render(state.Pledge);
@@ -184,11 +186,13 @@ function addPledgeNowListener(st) {
 function addPledgeSubmitListener(st) {
   if (st.view === "Pledge") {
     console.log(st.view);
-    document.getElementById("Pledge-form").addEventListener("submit", event => {
-      event.preventDefault();
-      console.log("creating pledge");
-      createPledge();
-    });
+    document
+      .getElementById("Pledge-form")
+      .addEventListener("submit", (event) => {
+        event.preventDefault();
+        console.log("creating pledge");
+        createPledge();
+      });
   }
 }
 
@@ -197,7 +201,7 @@ function createPledge() {
   console.log("created pledge");
   console.log("pledge listener created");
   let pledgeData = Array.from(event.target.elements);
-  const inputs = pledgeData.map(input => input.value);
+  const inputs = pledgeData.map((input) => input.value);
   console.log("inputs", inputs);
   let peer = inputs[0];
   let charity = inputs[1];
@@ -216,13 +220,13 @@ function addPledgeToDb(date, amount, charity, email, peer) {
       amount: amount,
       charityName: charity,
       email: email,
-      peerEmail: peer
+      peerEmail: peer,
     })
-    .then(function(docRef) {
+    .then(function (docRef) {
       console.log("Document written with ID: ", docRef.id);
       addPledgeToState(date, peer, charity, email, amount);
     })
-    .catch(function(error) {
+    .catch(function (error) {
       console.error("Error adding document: ", error);
     });
 }
@@ -234,73 +238,50 @@ function addPledgeToState(date, peer, charity, email, amount) {
     amount: amount,
     charityName: charity,
     email: email,
-    peerEmail: peer
+    peerEmail: peer,
   });
   console.log("state", state.Pledges);
   render(state.Home);
 }
-// function addMessageToHome () {
-//   document.querySelector("#message").textContent = `You pledged ${state.Pledges.amount} to $`
-// }
 
-function addListenForSignOut(st) {
-  document.getElementById("Logout").addEventListener("click", event => {
+//Listen for logout
+function addListenForSignOut() {
+  document.getElementById("Logout").addEventListener("click", (event) => {
     event.preventDefault();
     let email = state.User.email;
-    console.log("signout clicked", email);
+    console.log("sign out clicked", email);
     logoutUserInStateAndDb(email);
   });
 }
 
+// if user is logged in, log out when clicked
 function logoutUserInStateAndDb(email) {
-  // if user is logged in,
-
   event.preventDefault();
   console.log("logging out", email);
   // log out functionality
   logOutUserInDb(email);
-  resetUserInState(email);
-  //update user in database
-  db.collection("users").get;
   render(state.Home);
-
   console.log(state.User);
 }
-
+//update user in database
 function logOutUserInDb(email) {
   db.collection("users")
     .get()
-    .then(snapshot =>
-      snapshot.docs.forEach(doc => {
+    .then((snapshot) =>
+      snapshot.docs.forEach((doc) => {
         if (email === doc.data().email) {
           let id = doc.id;
-          db.collection("users")
-            .doc(id)
-            .update({ signedIn: false });
-          console.log("signout email", doc.email);
+          db.collection("users").doc(id).update({ signedIn: false });
+          console.log("sign out email", doc.email);
           console.log("db coll id", id);
         }
       })
     );
-  console.log("user signed out in db", id);
 }
 
-function resetUserInState(email) {
-  state.User.push({
-    userName: "",
-    firstName: "",
-    lastName: "",
-    email: "",
-    signedIn: false
-  });
-}
-
-//Calculate statistics
-
-//const topPledge = db.collection.pledges.amount;
-// document.getElementById("numdollars").textContent = `Pledges: ${topPledge}`;
-console.log("need to define statistics");
-
-// const memberCount = db.collection.users.length;
-// document.getElementById("Members").textContent = `Members: ${memberCount}`;
-// console.log(`# of Members ${memberCount}`);
+//Add content to section 4
+// function addMessageForUser() {
+//   document.querySelector(
+//     "top3charities"
+//   ).textContent = `Thank you for your ${state.Pledges.amount} pledge to ${state.Pledges.charityName}`;
+// }

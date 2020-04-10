@@ -10,7 +10,6 @@ h1 {
   font-family: "Noto Sans JP", sans-serif;
   font-size: 64px;
   color: navy;
-
 }
 h2 {
   font-family: "Noto Sans JP", sans-serif;
@@ -99,7 +98,7 @@ nav > ul > a {
   border-radius: 10px;
 }
 .section4 {
-  background-color: rgb(105, 142, 184) ;
+  background-color: rgb(105, 142, 184);
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
@@ -116,7 +115,7 @@ nav > ul > a {
   display: flex;
   flex-direction: row;
   align-content: center;
-  justify-content: center;
+  justify-content: space-around;
   align-items: baseline;
   max-height: 20vh;
   max-width: 100%;
@@ -128,7 +127,7 @@ nav > ul > a {
   display: flex;
   flex-direction: column;
   align-content: center;
-  max-height: 10vh;
+  max-height: 2vh;
   max-width: 100%;
   padding: 1px;
   margin: 1px;

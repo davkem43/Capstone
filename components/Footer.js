@@ -7,6 +7,8 @@ export default () => {
         <i class="fab fa-instagram"></i>
         <i class="fab fa-pinterest-p"></i>
         <i class="fab fa-linkedin"></i>
+     </ul>
+     <footer>&copy Kemp 2020</footer>
     </div><!--#footer-->
     <div class="footer-image">
       <img src = "https://github.com/davkem43/Capstone/blob/master/lib/volunteer.png?raw=true">

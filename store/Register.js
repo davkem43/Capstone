@@ -1,4 +1,4 @@
 export default {
   header: "Register",
-  view: "Register"
+  view: "Register",
 };
