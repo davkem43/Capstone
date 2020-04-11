@@ -89,12 +89,18 @@ function addRegisterListener(st) {
         let password = inputs[3];
         //
         //create user in Firebase db
-        auth
-          .createUserWithEmailAndPassword(email, password)
-          .then((response) => {
-            addUserToStateAndDb(firstName, lastName, email, password);
-            render(state.Home);
-          });
+        auth.createUserWithEmailAndPassword(email, password).then(() => {
+          addUserToStateAndDb(firstName, lastName, email, password);
+          render(state.Home);
+          //Add message to user on login
+          var para = document.createElement("p");
+          var node = document.createTextNode(
+            `Welcome ${firstName} ${lastName}!`
+          );
+          para.appendChild(node);
+          var element = document.getElementById("div1");
+          element.appendChild(para);
+        });
       });
   }
 }
@@ -228,7 +234,6 @@ function addPledgeToState(date, peer, charity, email, amount) {
     `Thank you for the $ ${amount} pledge to ${charity}`
   );
   para.appendChild(node);
-
   var element = document.getElementById("div1");
   element.appendChild(para);
 }
@@ -251,7 +256,7 @@ function logoutUserInStateAndDb(email) {
 
   //Add message to user on logout
   var para = document.createElement("p");
-  var node = document.createTextNode(`Goodbye`);
+  var node = document.createTextNode(`Goodbye       `);
   para.appendChild(node);
   var element = document.getElementById("div1");
   element.appendChild(para);
