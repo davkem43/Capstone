@@ -5,8 +5,7 @@ export default () => `
 
 <div class="section4">
     <div id="div1">
-    <p id="p1"></p>
-    <p id="p2"></p>
+      <p id="p1"></p>
     </div>
     <ul class="top3charities"><h3>Top Charities</h3>
         <li>UNICEF</li>

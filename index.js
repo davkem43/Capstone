@@ -28,6 +28,12 @@ axios
     state.Home.city = response.data.name;
     state.Home.temp = farenheit;
     state.Home.description = response.data.main;
+    //Add temperature display
+    var para = document.createElement("p");
+    var node = document.createTextNode(`Temp: ${farenheit}F`);
+    para.appendChild(node);
+    var element = document.getElementById("div2");
+    element.appendChild(para);
   });
 
 //Function to render State
@@ -229,6 +235,7 @@ function addPledgeToState(date, peer, charity, email, amount) {
     peerEmail: peer,
   });
   render(state.Home);
+  //Display pledge message
   var para = document.createElement("p");
   var node = document.createTextNode(
     `Thank you for the $ ${amount} pledge to ${charity}`
