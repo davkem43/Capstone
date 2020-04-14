@@ -5,6 +5,6 @@ export default () => `
     <input type="password" placeholder="Password" id="user-pass" autocomplete = "current-password" required/>
     <input type="submit" id="login" value="Sign In"/>
     <input type="submit" id="cancel" value="Cancel"/>
-    <span class="psw">Forgot <a href="#">password?</a></span>
+    <p id="pwd"></p>
   </form>
   `;

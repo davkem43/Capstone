@@ -2,9 +2,9 @@ export default () => {
   return `
     <div class="footer">
       <ul class="social">
-        <i class="fab fa-facebook"></i>
-        <i class="fab fa-instagram"></i>
-        <i class="fab fa-linkedin"></i>
+        <i class="fab fa-facebook" title="Facebook/peerpledge"></i>
+        <i class="fab fa-instagram" title="instagram/davekemp43"></i>
+        <i class="fab fa-linkedin" title = "http://linkedin.com/in/kempdave"></i>
         <i class="fab fa-pinterest"></i>
      </ul>
      <footer>&copy Kemp2020</footer>

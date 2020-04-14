@@ -29,10 +29,10 @@ axios
     state.Home.temp = farenheit;
     state.Home.description = response.data.main;
     //Add temperature display
-    var para = document.createElement("p");
-    var node = document.createTextNode(`Temp: ${farenheit}F`);
+    let para = document.createElement("p");
+    let node = document.createTextNode(`Temp: ${farenheit}F`);
     para.appendChild(node);
-    var element = document.getElementById("div2");
+    let element = document.getElementById("div2");
     element.appendChild(para);
   });
 
@@ -99,12 +99,12 @@ function addRegisterListener(st) {
           addUserToStateAndDb(firstName, lastName, email, password);
           render(state.Home);
           //Add message to user on login
-          var para = document.createElement("p");
-          var node = document.createTextNode(
+          let para = document.createElement("p");
+          let node = document.createTextNode(
             `Welcome ${firstName} ${lastName}!`
           );
           para.appendChild(node);
-          var element = document.getElementById("div1");
+          let element = document.getElementById("div1");
           element.appendChild(para);
         });
       });
@@ -141,6 +141,14 @@ function addLoginListener(st) {
       .getElementById("Login-form")
       .addEventListener("submit", (event) => {
         event.preventDefault();
+        if (event.returnValue === false) {
+          //Add message to user on login
+          let para = document.createElement("p");
+          let node = document.createTextNode(`Invalid email or password`);
+          para.appendChild(node);
+          let element = document.getElementById("pwd");
+          element.appendChild(para);
+        }
         let userInfo = Array.from(event.target.elements);
         const inputs = userInfo.map((input) => input.value);
         let email = inputs[0];
@@ -167,10 +175,10 @@ function addUserStatusToDb(email) {
           let last = doc.data().lastname;
           let status = true;
           //Add message to user on login
-          var para = document.createElement("p");
-          var node = document.createTextNode(`Welcome ${first} ${last}!`);
+          let para = document.createElement("p");
+          let node = document.createTextNode(`Welcome ${first} ${last}!`);
           para.appendChild(node);
-          var element = document.getElementById("div1");
+          let element = document.getElementById("div1");
           element.appendChild(para);
           addUserToState(first, last, email, status);
         }
@@ -236,12 +244,12 @@ function addPledgeToState(date, peer, charity, email, amount) {
   });
   render(state.Home);
   //Display pledge message
-  var para = document.createElement("p");
-  var node = document.createTextNode(
+  let para = document.createElement("p");
+  let node = document.createTextNode(
     `Thank you for the $ ${amount} pledge to ${charity}`
   );
   para.appendChild(node);
-  var element = document.getElementById("div1");
+  let element = document.getElementById("div1");
   element.appendChild(para);
 }
 
@@ -262,10 +270,10 @@ function logoutUserInStateAndDb(email) {
   render(state.Home);
 
   //Add message to user on logout
-  var para = document.createElement("p");
-  var node = document.createTextNode(`Goodbye       `);
+  let para = document.createElement("p");
+  let node = document.createTextNode(`Goodbye       `);
   para.appendChild(node);
-  var element = document.getElementById("div1");
+  let element = document.getElementById("div1");
   element.appendChild(para);
 }
 //update user in database
