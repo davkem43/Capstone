@@ -12,6 +12,10 @@ export default () => `
         <li>American Red Cross</li>
         <li>Cardinals Care</li>
     </ul><!--topCharities-->
-
+    <ul class="top3members"><h3>Top Members</h3>
+        <li>Mary Rogers</li>
+        <li>John Adams</li>
+        <li>Annie George</li>
+</ul><!--topMembers-->
 </div><!--section4-->
     `;
