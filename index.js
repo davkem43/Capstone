@@ -141,14 +141,7 @@ function addLoginListener(st) {
       .getElementById("Login-form")
       .addEventListener("submit", (event) => {
         event.preventDefault();
-        if (event.returnValue === false) {
-          //Add message to user on login
-          let para = document.createElement("p");
-          let node = document.createTextNode(`Invalid email or password`);
-          para.appendChild(node);
-          let element = document.getElementById("pwd");
-          element.appendChild(para);
-        }
+        if (event.returnValue === false)
         let userInfo = Array.from(event.target.elements);
         const inputs = userInfo.map((input) => input.value);
         let email = inputs[0];
