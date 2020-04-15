@@ -141,8 +141,7 @@ function addLoginListener(st) {
       .getElementById("Login-form")
       .addEventListener("submit", (event) => {
         event.preventDefault();
-        if (event.returnValue === false)
-        let userInfo = Array.from(event.target.elements);
+        const userInfo = Array.from(event.target.elements);
         const inputs = userInfo.map((input) => input.value);
         let email = inputs[0];
         let password = inputs[1];
